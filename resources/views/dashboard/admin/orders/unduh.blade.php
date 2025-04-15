@@ -102,13 +102,14 @@
                 <div>
                     <small>
                         Bergabung Sejak :
-                        {{ ($sale['customer']['created_at'])->format('d F Y')}}
+                        {{\Carbon\Carbon::parse($sale['created_at'])->format('d F Y')}}
+
                         <br>
                         Poin Member : {{$sale['customer']['poin'] }}
                     </small>
                 </div>
                 @else
-
+                
                 @endif
             </div>
             <div id="bot" style="margin-top: 20px">

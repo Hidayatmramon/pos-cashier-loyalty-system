@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Sale;
+use App\Models\customer;
 use App\Models\Product;
 use App\Models\DetailSale;
 use Carbon\Carbon;
@@ -47,7 +48,9 @@ class PageController extends Controller
             return view('dashboard.admin.dashboard.index', compact('labels', 'labelProducts', 'data', 'dataProducts'));
         }else{
             $sales = Sale::whereDate('created_at', Carbon::today())->count();
-            return view('dashboard.cashier.index', compact('sales'));
+            $totalnon = Sale::whereDate('created_at', Carbon::today())->whereNull('customer_id')->count();
+            $totalmem = Sale::whereDate('created_at', Carbon::today())->where('customer_id')->count();
+            return view('dashboard.cashier.index', compact('sales','totalmem','totalnon'));
         }
     }
 

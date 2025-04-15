@@ -27,6 +27,26 @@
                                 <h3 class="card-title">{{ $sales }}</h3>
                                 <p class="card-text">Jumlah total penjualan yang terjadi hari ini.</p>
                             </div>
+                         
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card d-block m-auto text-center">
+                           
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $totalnon }}</h3>
+                                <p class="card-text">Jumlah total penjualan non member yang terjadi hari ini.</p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card d-block m-auto text-center">
+                           
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $totalmem }}</h3>
+                                <p class="card-text">Jumlah total penjualan member yang terjadi hari ini.</p>
+                            </div>
                             <div class="card-footer text-muted">
                                 Terakhir diperbarui: {{ \Carbon\Carbon::now()->format('d M Y H:i') }}
                             </div>
